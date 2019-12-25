@@ -8,7 +8,6 @@ namespace DataAccess.Contexts
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            modelBuilder.HasDefaultSchema("insurance");
             base.OnModelCreating(modelBuilder);
         }
     }

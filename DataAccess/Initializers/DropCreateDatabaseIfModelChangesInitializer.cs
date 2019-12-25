@@ -25,6 +25,7 @@ namespace DataAccess.Initializers
         public override void InitializeDatabase(TContext context)
         {
             Console.WriteLine($"Initializing database using {InitializerName}");
+            this.CloseOpenedConnections(context);
             base.InitializeDatabase(context);
         }
 

@@ -17,7 +17,7 @@ namespace App
 
         private static void Run<TContext>() where TContext : AbstractDbContextForInsurance, new()
         {
-            const DatabaseInitializerType initializerType = DatabaseInitializerType.CreateIfNotExists;
+            const DatabaseInitializerType initializerType = DatabaseInitializerType.DropCreateAlways;
 
             DatabaseInitializerStrategy.Initialize<TContext,EmptyInsuranceSeeder<TContext>>(initializerType);
 

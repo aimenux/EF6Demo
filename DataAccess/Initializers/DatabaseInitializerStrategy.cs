@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data.Entity;
-using System.Data.SqlClient;
 using DataAccess.Migrations;
 using DataAccess.Seeders;
 
@@ -12,8 +11,8 @@ namespace DataAccess.Initializers
             where TContext : DbContext 
             where TSeeder : IInitializerSeeder<TContext>, new()
         {
-            SqlConnection.ClearAllPools();
             var initializer = Create<TContext,TSeeder>(initializerType);
+            initializer.CloseOpenedConnections();
             Database.SetInitializer(initializer);
         }
 

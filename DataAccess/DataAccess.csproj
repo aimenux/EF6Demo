@@ -55,6 +55,7 @@
     <Compile Include="Contexts\DbContextForInsuranceV2.cs" />
     <Compile Include="Helpers\IRandomGenerator.cs" />
     <Compile Include="Helpers\RandomGenerator.cs" />
+    <Compile Include="Initializers\DatabaseInitializerExtensions.cs" />
     <Compile Include="Initializers\MigrateDatabaseToLatestVersionInitializer.cs" />
     <Compile Include="Initializers\DropCreateDatabaseIfModelChangesInitializer.cs" />
     <Compile Include="Initializers\CreateDatabaseIfNotExistsInitializer.cs" />
