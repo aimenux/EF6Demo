@@ -9,5 +9,11 @@ Code First with multiple migrations strategies
 - You can use Initializer Seed method to add initial data to DB right after initialization.
 - You can use Migration Seed method to check and/or add new data or do special things right after migration.
 
-`To apply automatic migration from package manager console, run this command (specify an automatic migration either V1 or V2) :`
+You may apply automatic migration by either using code or using cli/ps commands.
+- Using code, you need to set `DatabaseInitializerType` to `MigrateDatabaseToLatestVersion` in `program.cs`
+- Using cli command (`Update-Database`), you need to specify an automatic migration configuration type :
+  - `InsuranceEnableMigrationsV1`
+  - `InsuranceEnableMigrationsV2`
+
+> Update-Database -Verbose -StartupProjectName App -ProjectName DataAccess -ConfigurationTypeName InsuranceEnableMigrationsV1
 > Update-Database -Verbose -StartupProjectName App -ProjectName DataAccess -ConfigurationTypeName InsuranceEnableMigrationsV2
