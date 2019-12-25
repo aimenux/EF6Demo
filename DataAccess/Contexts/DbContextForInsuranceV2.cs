@@ -7,8 +7,10 @@ namespace DataAccess.Contexts
     {
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Conventions.Remove<DecimalPropertyConvention>();
+            modelBuilder.Conventions.Add(new DecimalPropertyConvention(18, 4));
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
     }
 }
