@@ -60,6 +60,7 @@
     <Compile Include="Initializers\DropCreateDatabaseIfModelChangesInitializer.cs" />
     <Compile Include="Initializers\CreateDatabaseIfNotExistsInitializer.cs" />
     <Compile Include="Initializers\DropCreateDatabaseAlwaysInitializer.cs" />
+    <Compile Include="Migrations\InsuranceMigrations.cs" />
     <Compile Include="Seeders\AbstractInsuranceSeeder.cs" />
     <Compile Include="Seeders\AbstractSeeder.cs" />
     <Compile Include="Entities\Insurance.cs" />

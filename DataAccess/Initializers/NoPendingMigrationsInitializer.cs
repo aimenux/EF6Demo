@@ -37,7 +37,7 @@ namespace DataAccess.Initializers
                 throw new InvalidOperationException("The database does not exist");
             }
 
-            if (!context.Database.CompatibleWithModel(true))
+            if (!IsDatabaseCompatibleWithModel(context))
             {
                 throw new InvalidOperationException("The database is not compatible with the entity model");
             }
@@ -56,6 +56,19 @@ namespace DataAccess.Initializers
 
             var message = $"There are pending migrations {string.Join("\r\n", migrations)} that must be applied before starting application";
             throw new MigrationsPendingException(message);
+        }
+
+        private static bool IsDatabaseCompatibleWithModel(TContext context)
+        {
+            try
+            {
+                return context.Database.CompatibleWithModel(true);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return true;
+            }
         }
     }
 }

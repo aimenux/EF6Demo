@@ -5,8 +5,8 @@
         Nothing,
         DropCreateAlways,
         CreateIfNotExists,
+        NoPendingMigrations,
         MigrateDatabaseToLatestVersion,
-        ThrowPendingMigrationsException,
         DropCreateDatabaseIfModelChanges
     }
 }

@@ -30,15 +30,15 @@ namespace DataAccess.Initializers
 
                 case DatabaseInitializerType.CreateIfNotExists:
                     return new CreateDatabaseIfNotExistsInitializer<TContext,TSeeder>();
+                
+                case DatabaseInitializerType.NoPendingMigrations:
+                    return new NoPendingMigrationsInitializer<TContext,TSeeder,DisableMigrationsConfiguration<TContext>>();
 
                 case DatabaseInitializerType.MigrateDatabaseToLatestVersion:
                     return new MigrateDatabaseToLatestVersionInitializer<TContext,TSeeder,EnableMigrationsConfiguration<TContext>>();
 
                 case DatabaseInitializerType.DropCreateDatabaseIfModelChanges:
                     return new DropCreateDatabaseIfModelChangesInitializer<TContext,TSeeder>();
-
-                case DatabaseInitializerType.ThrowPendingMigrationsException:
-                    return new NoPendingMigrationsInitializer<TContext,TSeeder,DisableMigrationsConfiguration<TContext>>();
 
                 default:
                     throw new ArgumentOutOfRangeException($"Unsupported initializer type {initializerType}");
