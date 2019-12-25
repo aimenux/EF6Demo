@@ -2,6 +2,7 @@
 Code First with multiple migrations strategies
 
 `Question: What is the difference between Migrations Seed and ContextInitializer Seed ?`
+
 [`Answer`](https://stackoverflow.com/questions/35241585/entity-framework-what-is-the-difference-between-migrations-seed-and-contextiniti):
 - Migration Seed method is for seeding data right after database migration.
 - DB Initializer Seed method is for seeding data right after Database initialization.
