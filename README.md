@@ -15,5 +15,7 @@ You may apply automatic migration by either using code or using cli/ps commands.
   - `InsuranceEnableMigrationsV1`
   - `InsuranceEnableMigrationsV2`
 
-> Update-Database -Verbose -StartupProjectName App -ProjectName DataAccess -ConfigurationTypeName InsuranceEnableMigrationsV1
-> Update-Database -Verbose -StartupProjectName App -ProjectName DataAccess -ConfigurationTypeName InsuranceEnableMigrationsV2
+> Update-Database example
+>> Update-Database -Verbose -StartupProjectName App -ProjectName DataAccess -ConfigurationTypeName InsuranceEnableMigrationsV1
+
+>> Update-Database -Verbose -StartupProjectName App -ProjectName DataAccess -ConfigurationTypeName InsuranceEnableMigrationsV2
