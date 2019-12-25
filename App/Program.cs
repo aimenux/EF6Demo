@@ -10,23 +10,36 @@ namespace App
     {
         public static void Main()
         {
-            Run<DbContextForInsuranceV1>();
+            Run<DbContextForInsuranceV1>(true);
             Console.WriteLine("Press any key to exit ..");
             Console.ReadKey();
         }
 
-        private static void Run<TContext>() where TContext : AbstractDbContextForInsurance, new()
+        private static void Run<TContext>(bool withSeeder) where TContext : AbstractDbContextForInsurance, new()
         {
             const DatabaseInitializerType initializerType = DatabaseInitializerType.DropCreateAlways;
 
-            DatabaseInitializerStrategy.Initialize<TContext,EmptyInsuranceSeeder<TContext>>(initializerType);
+            if (withSeeder)
+            {
+                DatabaseInitializerStrategy.Initialize<TContext, RandomInsuranceSeeder<TContext>>(initializerType);
+            }
+            else
+            {
+                DatabaseInitializerStrategy.Initialize<TContext, EmptyInsuranceSeeder<TContext>>(initializerType);
+            }
 
             using (var context = new TContext())
             {
-                var insurances = context.Insurances.ToList();
-                foreach (var toto in insurances)
+                var providers = context.Providers.ToList();
+                foreach (var provider in providers)
                 {
-                    Console.WriteLine($"Insurance id {toto.Id} has code {toto.InsuranceCode}");
+                    Console.WriteLine($"Provider id {provider.Id} has code {provider.ProviderCode}");
+                }
+
+                var insurances = context.Insurances.ToList();
+                foreach (var insurance in insurances)
+                {
+                    Console.WriteLine($"Insurance id {insurance.Id} has code {insurance.InsuranceCode}");
                 }
             }
         }
