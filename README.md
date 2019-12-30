@@ -28,3 +28,5 @@ You may apply automatic migration by either using code or using cli/ps commands.
 >> Update-Database -Verbose -StartupProjectName App -ProjectName DataAccess -ConfigurationTypeName InsuranceEnableMigrationsV1
 
 >> Update-Database -Verbose -StartupProjectName App -ProjectName DataAccess -ConfigurationTypeName InsuranceEnableMigrationsV2
+
+**`Tools`** : `vs19, net framework 4.7.2, entity frameowrk 6.4`
